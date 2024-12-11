@@ -1,0 +1,9 @@
+{
+  "Dataset": {
+    "contactPoint": "contributors",
+    "description": "descriptions",
+    "identifier": "identifier",
+    "publisher": "publisher",
+    "title": "titles"
+  }
+}
