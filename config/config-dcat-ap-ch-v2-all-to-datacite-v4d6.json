@@ -1,0 +1,43 @@
+{
+  "Dataset": {
+    "contactPoint": "contributors",
+    "description": "descriptions",
+    "identifier": "identifier",
+    "publisher": "publisher",
+    "title": "titles",
+    "distribution": "relatedIdentifiers",
+    "keyword": "subjects",
+    "landingPage": "alternateIdentifiers",
+    "issued": {
+      "dates": {
+        "dateType": "Issued"
+      }
+    },
+    "spatial": "geoLocations",
+    "temporal": {
+      "dates": {
+        "dateType": "Coverage"
+      }
+    },
+    "theme": "subjects",
+    "modified": {
+      "dates": {
+        "dateType": "Updated"
+      }
+    },
+    "accessRights": "rightsList",
+    "conformsTo": {
+      "relatedIdentifiers": {
+        "relatedIdentifierType": "URL",
+        "relationType": "IsDescribedBy",
+        "resourceTypeGeneral": "Model"
+      }
+    },
+    "page": {
+      "relatedIdentifiers": {
+        "relatedIdentifierType": "URL",
+        "relationType": "IsDocumentedBy"
+      }
+    }
+  }
+}
