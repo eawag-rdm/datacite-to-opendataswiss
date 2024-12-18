@@ -5,12 +5,20 @@
     "identifier": "identifier",
     "publisher": "publisher",
     "title": "titles",
-    "distribution": "relatedIdentifiers",
+    "distribution": {
+      "alternateIdentifiers": {
+        "alternateIdentifierType": "URL"
+      }
+    },
     "keyword": "subjects",
-    "landingPage": "alternateIdentifiers",
+    "landingPage": {
+      "alternateIdentifiers": {
+        "alternateIdentifierType": "URL"
+      }
+    },
     "issued": {
       "dates": {
-        "dateType": "Issued"
+        "@dateType": "Issued"
       }
     },
     "spatial": "geoLocations",
@@ -22,22 +30,29 @@
     "theme": "subjects",
     "modified": {
       "dates": {
-        "dateType": "Updated"
+        "@dateType": "Updated"
       }
     },
     "accessRights": "rightsList",
     "conformsTo": {
       "relatedIdentifiers": {
-        "relatedIdentifierType": "URL",
-        "relationType": "IsDescribedBy",
-        "resourceTypeGeneral": "Model"
+        "@relatedIdentifierType": "URL",
+        "@relationType": "IsDescribedBy",
+        "@resourceTypeGeneral": "Model"
       }
     },
     "page": {
       "relatedIdentifiers": {
-        "relatedIdentifierType": "URL",
-        "relationType": "IsDocumentedBy"
+        "@relatedIdentifierType": "URL",
+        "@relationType": "IsDocumentedBy"
       }
-    }
+    },
+    "isReferencedBy": {
+      "relatedIdentifiers": {
+        "@relatedIdentifierType": "URL",
+        "@relationType": "IsReferencedBy"
+      }
+    },
+    "language": "language"
   }
 }
