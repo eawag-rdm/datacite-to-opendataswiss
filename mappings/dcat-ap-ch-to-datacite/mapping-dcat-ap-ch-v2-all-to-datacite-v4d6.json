@@ -7,13 +7,13 @@
     "title": "titles",
     "distribution": {
       "alternateIdentifiers": {
-        "alternateIdentifierType": "URL"
+        "@alternateIdentifierType": "URL"
       }
     },
     "keyword": "subjects",
     "landingPage": {
       "alternateIdentifiers": {
-        "alternateIdentifierType": "URL"
+        "@alternateIdentifierType": "URL"
       }
     },
     "issued": {
@@ -24,7 +24,7 @@
     "spatial": "geoLocations",
     "temporal": {
       "dates": {
-        "dateType": "Coverage"
+        "@dateType": "Coverage"
       }
     },
     "theme": "subjects",
