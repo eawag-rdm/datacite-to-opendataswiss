@@ -1,0 +1,80 @@
+{
+  "identifier": {
+    "property": "identifier",
+    "transform": "DataCitev4d6ToDCATv2"
+  },
+  "titles": {
+    "property": "title",
+    "transform": "DataCitev4d6ToDCATv2 extract first title"
+  },
+  "publisher": {
+    "property": "publisher",
+    "transform": "DataCitev4d6ToDCATv2"
+  },
+  "contributors": {
+    "property": "contactPoint",
+    "transform": "DataCitev4d6ToDCATv2"
+  },
+  "descriptions": {
+    "property": "description",
+    "transform": "DataCitev4d6ToDCATv2 extract first title"
+  },
+  "subjects": {
+    "property": "keyword",
+    "transform": "DataCitev4d6ToDCATv2"
+  },
+  "dates": {
+    "properties": {
+      "issued": {
+        "@dateType": "Issued"
+      },
+      "temporal": {
+        "@dateType": "Coverage"
+      },
+      "modified": {
+        "@dateType": "Updated"
+      }
+    },
+    "transform": "DataCitev4d6ToDCATv2"
+  },
+  "language": {
+    "field": "language",
+    "transform": "DataCitev4d6ToDCATv2"
+  },
+  "alternateIdentifiers": {
+    "properties": {
+      "distribution": {
+        "@alternateIdentifierType": "URL"
+      },
+      "landingPage": {
+        "@landingPage": "URL"
+      }
+    },
+    "transform": "DataCitev4d6ToDCATv2"
+  },
+  "relatedIdentifiers": {
+    "properties": {
+      "conformsTo": {
+        "@relatedIdentifierType": "URL",
+        "@relationType": "IsDescribedBy",
+        "@resourceTypeGeneral": "Model"
+      },
+      "page": {
+        "@relatedIdentifierType": "URL",
+        "@relationType": "IsDocumentedBy"
+      },
+      "isReferencedBy": {
+        "@relatedIdentifierType": "URL",
+        "@relationType": "IsDocumentedBy"
+      }
+    },
+    "transform": "DataCitev4d6ToDCATv2"
+  },
+  "rightsList": {
+    "property": "accessRights",
+    "transform": "DataCitev4d6ToDCATv2"
+  },
+  "geoLocations": {
+    "properties": "spatial"
+  }
+}
