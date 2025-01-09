@@ -1,4 +1,14 @@
 {
+  "metadataVersions": {
+    "DataCite": {
+      "version": "4.6",
+      "url": "https://datacite-metadata-schema.readthedocs.io/en/4.6/"
+    },
+    "DCAT-AP-CH": {
+      "version": "2.0",
+      "url": "https://dcat-ap.ch/releases/2.0/dcat-ap-ch.html"
+    }
+  },
   "identifier": {
     "property": "identifier",
     "transform": "DataCitev4d6ToDCATv2"

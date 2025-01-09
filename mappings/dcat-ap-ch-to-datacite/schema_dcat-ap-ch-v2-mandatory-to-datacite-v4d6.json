@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
-    "title": "schema_mapping-dcat-ap-ch-v2-mandatory-to-datacite-v4d6.json",
+    "title": "schema_dcat-ap-ch-v2-mandatory-to-datacite-v4d6.json",
     "description": "Schema for configuration mapping of DCAT-AP CH version 2 mandatory properties to DataCite version 4.6",
     "properties": {
         "Dataset": {

@@ -1,0 +1,128 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "metadataVersions": {
+            "type": "object",
+            "properties": {
+                "DataCite": {
+                    "type": "object",
+                    "properties": {
+                        "version": {
+                            "type": "string"
+                        },
+                        "url": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "url",
+                        "version"
+                    ]
+                },
+                "DCAT-AP-CH": {
+                    "type": "object",
+                    "properties": {
+                        "version": {
+                            "type": "string"
+                        },
+                        "url": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "url",
+                        "version"
+                    ]
+                }
+            },
+            "required": [
+                "DCAT-AP-CH",
+                "DataCite"
+            ]
+        },
+        "identifier": {
+            "type": "object",
+            "properties": {
+                "property": {
+                    "type": "string"
+                },
+                "transform": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "property",
+                "transform"
+            ]
+        },
+        "titles": {
+            "type": "object",
+            "properties": {
+                "property": {
+                    "type": "string"
+                },
+                "transform": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "property",
+                "transform"
+            ]
+        },
+        "publisher": {
+            "type": "object",
+            "properties": {
+                "property": {
+                    "type": "string"
+                },
+                "transform": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "property",
+                "transform"
+            ]
+        },
+        "contributors": {
+            "type": "object",
+            "properties": {
+                "property": {
+                    "type": "string"
+                },
+                "transform": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "property",
+                "transform"
+            ]
+        },
+        "descriptions": {
+            "type": "object",
+            "properties": {
+                "property": {
+                    "type": "string"
+                },
+                "transform": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "property",
+                "transform"
+            ]
+        }
+    },
+    "required": [
+        "contributors",
+        "descriptions",
+        "identifier",
+        "metadataVersions",
+        "publisher",
+        "titles"
+    ]
+}
