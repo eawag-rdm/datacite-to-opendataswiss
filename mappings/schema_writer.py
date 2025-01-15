@@ -6,12 +6,12 @@ def json_schema_writer(input_json_path: str, output_json_path: str):
     """
     Generate and write JSON schema from input JSON file.
 
-    :param input_json_path: Path to input JSON file.
-    :type input_json_path: str
-    :param output_json_path: Path to output JSON file.
-    :type output_json_path: str
-    :return: None.
-    :rtype: None
+    Args:
+        input_json_path (str): Path to input JSON file.
+        output_json_path (str): Path to output JSON file.
+
+    Returns:
+        None: None.
     """
     try:
         with (open(input_json_path, "r")) as file:
@@ -25,4 +25,4 @@ def json_schema_writer(input_json_path: str, output_json_path: str):
             json.dump(schema, json_file, indent=4)
 
     except Exception as e:
-        raise Exception(f"Failed to write schema from input JSON file, {e}")
+        raise Exception(f"Failed to write schema from input JSON file: {e}")

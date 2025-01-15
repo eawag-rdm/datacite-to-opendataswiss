@@ -1,7 +1,7 @@
 [project]
 name = "datacite-to-opendataswiss"
 version = "0.1.0"
-description = "Converts DataCite XML metadata format to opendata.swiss XML metadata format."
+description = "Converts metadata in DataCite XML format to opendata.swiss XML format."
 authors = [
     {name = "Rebecca Kurup Buchholz"},
 ]
