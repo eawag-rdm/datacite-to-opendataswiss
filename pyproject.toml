@@ -17,3 +17,8 @@ license = {text = "MIT"}
 
 [project.urls]
 repository = "https://github.com/eawag-rdm/datacite-to-opendataswiss"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.9.1",
+]
