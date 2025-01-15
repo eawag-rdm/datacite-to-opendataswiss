@@ -14,7 +14,7 @@ def json_schema_writer(input_json_path: str, output_json_path: str):
         None: None.
     """
     try:
-        with (open(input_json_path, "r")) as file:
+        with open(input_json_path, "r") as file:
             data = json.load(file)
 
         builder = SchemaBuilder()
