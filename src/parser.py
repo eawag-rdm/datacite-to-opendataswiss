@@ -50,7 +50,7 @@ def modify_xml_content(xml_content, tag_replacement, text_replacement):
 # TODO specify return type as zip with xml files in return hint and docstring,
 #  consider error return types
 # TODO consider using a size limit to prevent memory issues or process items in chunks
-# TODO consider implementing multiprocessing to improve performance
+# TODO consider implementing ProcesspoolExecutor to improve performance
 # TODO add parameter that specifies which schema will be used for conversion,
 #  designate a default schema
 # TODO log error messages, see websnap for setting up logging
@@ -68,54 +68,57 @@ def parse_zipfile(input_path: str):
         text_replacement = {"old_text": "new_text",
                             "Example content": "Updated content"}
 
-        with BytesIO() as zip_buffer:
-            # TODO research ZIP_DEFLATED
-            with zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED) as zip_output:
+        with zipfile.ZipFile(input_path, "r") as zip_in:
+            has_xml = False
+            namelist = zip_in.namelist()
 
-                # TODO remove
-                # Read the original ZIP file into memory
-                # with open(input_path, "rb") as f:
-                #     zip_data = f.read()
+            # TODO modify and create root elements with a function
+            # Create the root element for the aggregated XML
+            root = ElemTree.Element("AggregatedData")
 
-                # with zipfile.ZipFile(BytesIO(zip_data), "r") as zip_in:  # TODO remove
-                with zipfile.ZipFile(input_path, "r") as zip_in:
-                    has_xml = False
-                    namelist = zip_in.namelist()
+            for file_name in namelist:
+                if file_name.endswith(".xml"):
+                    has_xml = has_xml or True
+                    # print(file_name)  # TODO remove
 
-                    for file_name in namelist:
-                        if file_name.endswith(".xml"):
-                            has_xml = has_xml or True
-                            # print(file_name)  # TODO remove
+                    with zip_in.open(file_name) as file:
+                        input_xml = file.read()
 
-                            with zip_in.open(file_name) as file:
-                                input_xml = file.read()
-                                # TODO remove
-                                modified_xml = modify_xml_content(input_xml,
-                                                                  tag_replacement,
-                                                                  text_replacement)
-                                zip_output.writestr(file_name, modified_xml)
-                                # TODO call conversion logic
+                        # TODO remove
+                        modified_xml = modify_xml_content(input_xml,
+                                                          tag_replacement,
+                                                          text_replacement)
+                        modified_xml_bytes = ElemTree.fromstring(modified_xml)
+                        root.append(modified_xml_bytes)
 
-                    if not has_xml:
-                        # TODO improve error handling
-                        print(
-                            f"Input '{input_path}' does not have a file with an '.xml' "
-                            f"extension."
-                        )
+                        # TODO call conversion logic
 
-            # Make sure the buffer is ready to be read
-            zip_buffer.seek(0)
+            if not has_xml:
+                # TODO improve error handling
+                print(
+                    f"Input '{input_path}' does not have a file with an '.xml' "
+                    f"extension."
+                )
 
-            return zip_buffer.getvalue()
+            # Write the aggregated XML to a memory buffer
+            buffer = BytesIO()
+            tree = ElemTree.ElementTree(root)
+            tree.write(buffer, encoding="utf-8", xml_declaration=True)
+
+            # Return the combined XML as bytes
+            buffer.seek(0)
+            return buffer.getvalue()
+
     else:
         # TODO improve error handling
         print(f"Input '{input_path}' is not a zip file.")
 
 
+# TODO remove
 # Tests
-zip_content = parse_zipfile("doi_wsl.zip")
-with open("example.zip", "wb") as f:
-    f.write(zip_content)
+# zip_content = parse_zipfile("doi_wsl.zip")
+# with open("example.xml", "wb") as f:
+#     f.write(zip_content)
 
 # TODO remove
 script_end_time = time.perf_counter()
