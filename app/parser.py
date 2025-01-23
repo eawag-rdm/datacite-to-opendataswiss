@@ -5,6 +5,7 @@ import zipfile
 
 # TODO remove
 import time
+
 script_start_time = time.perf_counter()
 
 
@@ -62,11 +63,12 @@ def parse_zipfile(input_path: str):
         input_path (str): path to input ZIP file.
     """
     if zipfile.is_zipfile(input_path):
-
         # TODO remove
         tag_replacement = {"note": "message", "to": "receiver", "from": "sender"}
-        text_replacement = {"old_text": "new_text",
-                            "Example content": "Updated content"}
+        text_replacement = {
+            "old_text": "new_text",
+            "Example content": "Updated content",
+        }
 
         with zipfile.ZipFile(input_path, "r") as zip_in:
             has_xml = False
@@ -85,9 +87,9 @@ def parse_zipfile(input_path: str):
                         input_xml = file.read()
 
                         # TODO remove
-                        modified_xml = modify_xml_content(input_xml,
-                                                          tag_replacement,
-                                                          text_replacement)
+                        modified_xml = modify_xml_content(
+                            input_xml, tag_replacement, text_replacement
+                        )
                         modified_xml_bytes = ElemTree.fromstring(modified_xml)
                         root.append(modified_xml_bytes)
 
