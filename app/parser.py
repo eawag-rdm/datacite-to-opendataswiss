@@ -116,11 +116,85 @@ def parse_zipfile(input_path: str):
         print(f"Input '{input_path}' is not a zip file.")
 
 
+# TODO remove or use function
+def parse_zipfile_chunks(input_path: str):
+    """
+    Parse XML files in an input ZIP file.
+
+    Args:
+        input_path (str): path to input ZIP file.
+    """
+    if zipfile.is_zipfile(input_path):
+        # TODO remove
+        tag_replacement = {"note": "message", "to": "receiver", "from": "sender"}
+        text_replacement = {
+            "old_text": "new_text",
+            "Example content": "Updated content",
+        }
+
+        with zipfile.ZipFile(input_path, "r") as zip_in:
+            namelist = zip_in.namelist()
+            xml_files = [file for file in namelist if file.endswith(".xml")]
+
+            if not xml_files:
+                # TODO improve error handling
+                print(
+                    f"Input '{input_path}' does not have a file with an '.xml' "
+                    f"extension."
+                )
+
+            for f in xml_files:
+                print(f)
+
+            chunks = [xml_files[i::10] for i in range(10)]
+            for chunk in chunks:
+                print(chunk)
+
+            # TODO remove
+            # print(xml_files)
+            # print(len(xml_files))
+
+            # # TODO modify and create root elements with a function
+            # # Create the root element for the aggregated XML
+            # root = ElemTree.Element("AggregatedData")
+            #
+            # for file_name in namelist:
+            #     if file_name.endswith(".xml"):
+            #         # print(file_name)  # TODO remove
+            #
+            #         with zip_in.open(file_name) as file:
+            #             input_xml = file.read()
+            #
+            #             # TODO remove
+            #             modified_xml = modify_xml_content(
+            #                 input_xml, tag_replacement, text_replacement
+            #             )
+            #             modified_xml_bytes = ElemTree.fromstring(modified_xml)
+            #             root.append(modified_xml_bytes)
+            #
+            #             # TODO call conversion logic
+
+            # # Write the aggregated XML to a memory buffer
+            # buffer = BytesIO()
+            # tree = ElemTree.ElementTree(root)
+            # tree.write(buffer, encoding="utf-8", xml_declaration=True)
+            #
+            # # Return the combined XML as bytes
+            # buffer.seek(0)
+            # return buffer.getvalue()
+
+    else:
+        # TODO improve error handling
+        print(f"Input '{input_path}' is not a zip file.")
+
+
 # TODO remove
 # Tests
 # zip_content = parse_zipfile("doi_wsl.zip")
 # with open("example.xml", "wb") as f:
 #     f.write(zip_content)
+
+# parse_zipfile_chunks("doi_wsl.zip")
 
 # TODO remove
 script_end_time = time.perf_counter()
