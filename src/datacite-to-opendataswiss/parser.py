@@ -117,6 +117,10 @@ def parse_zipfile(input_path: str):
 
 
 # TODO remove or use function
+# TODO remove comments
+# data processing apply a function from a class using a decorator
+# python in a data processing workflow apply functions to transform xml files
+# from a class
 def parse_zipfile_chunks(input_path: str):
     """
     Parse XML files in an input ZIP file.
@@ -142,9 +146,6 @@ def parse_zipfile_chunks(input_path: str):
                     f"Input '{input_path}' does not have a file with an '.xml' "
                     f"extension."
                 )
-
-            for f in xml_files:
-                print(f)
 
             chunks = [xml_files[i::10] for i in range(10)]
             for chunk in chunks:
@@ -194,7 +195,7 @@ def parse_zipfile_chunks(input_path: str):
 # with open("example.xml", "wb") as f:
 #     f.write(zip_content)
 
-# parse_zipfile_chunks("doi_wsl.zip")
+parse_zipfile_chunks("../doi_wsl.zip")
 
 # TODO remove
 script_end_time = time.perf_counter()
